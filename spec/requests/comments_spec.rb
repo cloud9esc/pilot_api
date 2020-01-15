@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Comments API' do
-
   # Initialize the test data
   let!(:review) { create(:review) }
   let!(:comments) { create_list(:comment, 20, review_id: review.id) }
@@ -23,7 +22,7 @@ RSpec.describe 'Comments API' do
     end
 
     context 'when review does not exist' do
-      let(:review_id) {0}
+      let(:review_id) { 0 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
@@ -87,7 +86,7 @@ RSpec.describe 'Comments API' do
   end
 
   describe 'PUT /reviews/:review_id/comments/:id' do
-    let(:valid_attributes) { { commenter: "Anon" } }
+    let(:valid_attributes) { { commenter: 'Anon' } }
 
     before { put "/reviews/#{review_id}/comments/#{id}", params: valid_attributes }
 
@@ -97,7 +96,7 @@ RSpec.describe 'Comments API' do
       end
       it 'updates the comment' do
         updated_comment = Comment.find(id)
-        expect(updated_comment.commenter).to match("Anon")
+        expect(updated_comment.commenter).to match('Anon')
       end
     end
 
@@ -121,4 +120,4 @@ RSpec.describe 'Comments API' do
       expect(response).to have_http_status(204)
     end
   end
-end 
+end
