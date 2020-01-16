@@ -20,7 +20,7 @@ RSpec.describe 'Categories API', type: :request do
 
   describe 'POST /categories' do
     # valid payload
-    let(:valid_attributes) { { name: 'Movie'} }
+    let(:valid_attributes) { { name: 'Movie' } }
 
     context 'when the request is valid' do
       before { post '/categories', params: valid_attributes }

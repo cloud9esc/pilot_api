@@ -10,37 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_15_074251) do
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 20_200_115_074_251) do
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.string "content"
-    t.integer "review_id", null: false
-    t.string "password"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_comments_on_review_id"
+  create_table 'comments', force: :cascade do |t|
+    t.string 'commenter'
+    t.string 'content'
+    t.integer 'review_id', null: false
+    t.string 'password'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['review_id'], name: 'index_comments_on_review_id'
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.boolean "has_spoiler"
-    t.text "content"
-    t.string "img_url"
-    t.string "deleted_by"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id"
-    t.string "password"
-    t.index ["category_id"], name: "index_reviews_on_category_id"
+  create_table 'reviews', force: :cascade do |t|
+    t.string 'title'
+    t.string 'author'
+    t.boolean 'has_spoiler'
+    t.text 'content'
+    t.string 'img_url'
+    t.string 'deleted_by'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'category_id'
+    t.string 'password'
+    t.index ['category_id'], name: 'index_reviews_on_category_id'
   end
 
-  add_foreign_key "comments", "reviews"
+  add_foreign_key 'comments', 'reviews'
 end

@@ -44,4 +44,3 @@ class CommentsController < ApplicationController
     @comment = @review.comments.find_by!(id: params[:id]) if @review
   end
 end
-

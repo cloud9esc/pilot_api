@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Reviews API', type: :request do
   # initialize test data
   let!(:category) { create(:category) }
-  let!(:reviews) { create_list(:review, 10) }
+  let!(:reviews) { create_list(:review, 10, category_id: category.id) }
   let(:category_id) { category.id }
   let(:review_id) { reviews.first.id }
 
