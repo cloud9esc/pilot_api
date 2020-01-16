@@ -20,13 +20,14 @@ class ReviewsController < ApplicationController
 
   # PUT /reviews/:id
   def update
-    @review.update(review_params)
+    @review.undiscard(review_params)
     head :no_content
   end
 
   # DELETE /reviews/:id
   def destroy
-    @review.destroy
+    @review.discard
+    # redirect_to users_url, notice: "Review removed"
     head :no_content
   end
 

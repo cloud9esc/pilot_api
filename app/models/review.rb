@@ -4,4 +4,5 @@ class Review < ApplicationRecord
   belongs_to :category
   # validations
   validates_presence_of :title, :author
+  include Discard::Model
 end
