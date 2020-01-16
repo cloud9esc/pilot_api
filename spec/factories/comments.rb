@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :comment do
     commenter { Faker::JapaneseMedia::DragonBall.character }
-    review_id { nil }
+    content { Faker::Quote }
+    review
   end
 end

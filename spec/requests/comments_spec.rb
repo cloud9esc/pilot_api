@@ -62,7 +62,7 @@ RSpec.describe 'Comments API' do
   end
 
   describe 'POST /reviews/:review_id/comments' do
-    let(:valid_attributes) { { commenter: 'Visit Narnia' } }
+    let(:valid_attributes) { { commenter: 'Visit Narnia', content: 'hello world!' } }
 
     context 'when request attributes are valid' do
       before { post "/reviews/#{review_id}/comments", params: valid_attributes }
@@ -86,7 +86,7 @@ RSpec.describe 'Comments API' do
   end
 
   describe 'PUT /reviews/:review_id/comments/:id' do
-    let(:valid_attributes) { { commenter: 'Anon' } }
+    let(:valid_attributes) { { commenter: 'Anon', content: 'The world!' } }
 
     before { put "/reviews/#{review_id}/comments/#{id}", params: valid_attributes }
 

@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:commenter)
+    params.permit(:commenter, :content)
   end
 
   def set_review
