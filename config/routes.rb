@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resource :categorys, only: [:index, :create, :update, :destroy]
+  resource :categories, only: [:index, :create, :update, :destroy]
 end

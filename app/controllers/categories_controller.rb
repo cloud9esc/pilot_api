@@ -1,25 +1,25 @@
-class CategorysController < ApplicationController
+class CategoriesController < ApplicationController
   before_action :set_category, only: %i[update destroy]
 
-  # GET /categorys
+  # GET /categories
   def index
-    @categorys = Category.all
-    json_response(@categorys)
+    @categories = Category.all
+    json_response(@categories)
   end
 
-  # POST /categorys
+  # POST /categories
   def create
     @category = Category.create!(category_params)
     json_response(@category, :created)
   end
 
-  # PUT /categorys/:id
+  # PUT /categories/:id
   def update
     @category.update(category_params)
     head :no_content
   end
 
-  # DELETE /categorys/:id
+  # DELETE /categories/:id
   def destroy
     @category.destroy
     head :no_content

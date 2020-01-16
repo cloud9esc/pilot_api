@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'Categorys API', type: :request do
+RSpec.describe 'Categories API', type: :request do
   # initialize test data
-  let!(:categorys) { create_list(:category, 5) }
-  let(:category_id) { categorys.first.id }
+  let!(:categories) { create_list(:category, 5) }
+  let(:category_id) { categories.first.id }
 
-  describe 'GET /categorys' do
-    before { get '/categorys' }
+  describe 'GET /categories' do
+    before { get '/categories' }
 
-    it 'returns categorys' do
+    it 'returns categories' do
       expect(json).not_to be_empty
       expect(json.size).to eq(5)
     end
@@ -18,12 +18,12 @@ RSpec.describe 'Categorys API', type: :request do
     end
   end
 
-  describe 'POST /categorys' do
+  describe 'POST /categories' do
     # valid payload
     let(:valid_attributes) { { name: 'Movie'} }
 
     context 'when the request is valid' do
-      before { post '/categorys', params: valid_attributes }
+      before { post '/categories', params: valid_attributes }
 
       it 'creates a category' do
         expect(json['name']).to eq('Movie')
@@ -35,7 +35,7 @@ RSpec.describe 'Categorys API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/categorys', params: { name: 'Movie' } }
+      before { post '/categories', params: { name: 'Movie' } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -48,11 +48,11 @@ RSpec.describe 'Categorys API', type: :request do
     end
   end
 
-  describe 'PUT /categorys/:id' do
+  describe 'PUT /categories/:id' do
     let(:valid_attributes) { { name: 'Movie' } }
 
     context 'when the record exists' do
-      before { put "/categorys/#{category_id}", params: valid_attributes }
+      before { put "/categories/#{category_id}", params: valid_attributes }
 
       it 'updates the record' do
         expect(response.body).to be_empty
@@ -64,8 +64,8 @@ RSpec.describe 'Categorys API', type: :request do
     end
   end
 
-  describe 'DELETE /categorys/:id' do
-    before { delete "/categorys/#{category_id}" }
+  describe 'DELETE /categories/:id' do
+    before { delete "/categories/#{category_id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
