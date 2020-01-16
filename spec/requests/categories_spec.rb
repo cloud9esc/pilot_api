@@ -35,7 +35,7 @@ RSpec.describe 'Categories API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post '/categories', params: { name: 'Movie' } }
+      before { post '/categories', params: { lolo: 77 } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -72,3 +72,4 @@ RSpec.describe 'Categories API', type: :request do
     end
   end
 end
+

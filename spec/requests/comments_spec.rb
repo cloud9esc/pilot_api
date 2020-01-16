@@ -73,7 +73,9 @@ RSpec.describe 'Comments API' do
     end
 
     context 'when an invalid request' do
-      before { post "/reviews/#{review_id}/comments", params: {} }
+      before { post "/reviews/#{review_id}/comments", params: {
+        content: "thank you"
+      } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)

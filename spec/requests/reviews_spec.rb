@@ -49,12 +49,13 @@ RSpec.describe 'Reviews API', type: :request do
 
   describe 'POST /reviews' do
     # valid payload
-    let(:valid_attributes) { { title: 'Learn Elm', author: '1' } }
+    let(:valid_attributes) { { title: 'Learn Elm', author: '1', category_id: category_id } }
 
     context 'when the request is valid' do
       before { post '/reviews', params: valid_attributes }
 
       it 'creates a review' do
+        puts json
         expect(json['title']).to eq('Learn Elm')
       end
 
